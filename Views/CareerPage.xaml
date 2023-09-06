@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:MembersApp.ViewModels"
+    x:Class="MembersApp.Views.CareerPage"
+    Style="{StaticResource ContentPage}"
+    Title="Parliamentary career">
+    <ContentPage.BindingContext>
+        <viewmodels:CareerPageViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Styles/SubDetailPage.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid
+        Style="{StaticResource Content}">
+        <HorizontalStackLayout
+            Style="{StaticResource MemberIntro}">
+            <Frame
+                Style="{StaticResource MemberIntroImageFrame}">
+                <Image
+                    Source="{Binding Member.ThumbnailUrl}"
+                    Style="{StaticResource MemberIntroImage}" />
+            </Frame>
+            <Label
+                Style="{StaticResource MemberIntroName}"
+                Text="{Binding Member.NameDisplayAs}" />
+        </HorizontalStackLayout>
+        <ScrollView
+            Style="{StaticResource Details}">
+            <VerticalStackLayout
+                Style="{StaticResource DetailsMain}">
+                <Label
+                    Style="{StaticResource Heading}"
+                    Text="Parliamentary career" />
+                <Label
+                    Style="{StaticResource Paragraph}"
+                    Text="{Binding Member.NameDisplayAs, StringFormat='Find out about the Parliamentary career of {0}, including posts and roles held.'}"/>
+                <HorizontalStackLayout>
+                    <Grid
+                        Style="{StaticResource TabItem}">
+                        <Button
+                            Style="{StaticResource TabLink}"
+                            Text="Current" />
+                        <BoxView
+                            Color="#5F2DB2"
+                            Grid.Row="1"
+                            HeightRequest="3" />
+                    </Grid>
+                    <Grid
+                        Style="{StaticResource TabItem}">
+                        <Button
+                            Style="{StaticResource TabLink}"
+                            Text="Previous" />
+                    </Grid>
+                </HorizontalStackLayout>
+                <Label
+                    Style="{StaticResource Paragraph}"
+                    Text="Shows current posts, roles, party affiliation and other relevant information." />
+                <Label
+                    Style="{StaticResource HeadingThree}"
+                    Text="Representation" />
+                <Grid
+                    Style="{StaticResource Card}">
+                    <BoxView
+                        Style="{StaticResource CardBorder}"/>
+                    <VerticalStackLayout
+                        Style="{StaticResource CardMain}">
+                        <Label
+                            Style="{StaticResource CardTitle}"
+                            Text="{Binding Member.Constituency}" />
+                        <Label
+                            Style="{StaticResource CardParagraph}"
+                            Text="Elected 9 times" />
+                        <Label
+                            Style="{StaticResource CardParagraph}"
+                            Text="1 January 2023 - Present" />
+                        <Label
+                            Style="{StaticResource CardParagraph}"
+                            Text="Commons" />
+                    </VerticalStackLayout>
+                </Grid>
+                <Label
+                    Style="{StaticResource HeadingThree}"
+                    Text="Party affiliation" />
+                <Grid
+                    Style="{StaticResource Card}">
+                    <BoxView
+                        Style="{StaticResource CardBorder}" />
+                    <VerticalStackLayout
+                        Style="{StaticResource CardMain}">
+                        <Label
+                            Style="{StaticResource CardTitle}"
+                            Text="Labour" />
+                        <Label
+                            Style="{StaticResource CardParagraph}"
+                            Text="1 January 2023 - present"/>
+                    </VerticalStackLayout>
+                </Grid>
+                <Label
+                    Style="{StaticResource HeadingThree}"
+                    Text="Committee memberships" />
+                <Grid
+                    Style="{StaticResource Card}">
+                    <BoxView
+                        Style="{StaticResource CardBorder}" />
+                    <VerticalStackLayout
+                        Style="{StaticResource CardMain}">
+                        <Label
+                            Style="{StaticResource CardTitle}"
+                            Text="Home Affairs Committee"/>
+                        <Label
+                            Style="{StaticResource CardParagraph}"
+                            Text="1 January 2023 - present" />
+                        <Label
+                            Style="{StaticResource CardParagraph}"
+                            Text="Commons" />
+                    </VerticalStackLayout>
+                </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

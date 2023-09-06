@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:MembersApp.ViewModels"
+    x:Class="MembersApp.Views.OfficialPortraitPage"
+    Style="{StaticResource ContentPage}"
+    Title="Official portrait">
+    <ContentPage.BindingContext>
+        <viewmodels:OfficialPortraitPageViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Styles/SubDetailPage.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid
+        Style="{StaticResource Content}">
+        <HorizontalStackLayout
+            Style="{StaticResource MemberIntro}">
+            <Frame
+                Style="{StaticResource MemberIntroImageFrame}">
+                <Image
+                    Source="{Binding Member.ThumbnailUrl}"
+                    Style="{StaticResource MemberIntroImage}" />
+            </Frame>
+            <Label
+                Style="{StaticResource MemberIntroName}"
+                Text="{Binding Member.NameDisplayAs}" />
+        </HorizontalStackLayout>
+        <ScrollView
+            Style="{StaticResource Details}">
+            <VerticalStackLayout
+                Style="{StaticResource DetailsMain}">
+                <Label
+                    Style="{StaticResource Heading}"
+                    Text="Official portrait" />
+                <Label
+                    Style="{StaticResource ParagraphLast}"
+                    Text="{Binding Member.NameDisplayAs, StringFormat='View and download portraits and cropped portraits of {0}.'}"/>
+                <VerticalStackLayout
+                    Style="{StaticResource Info}">
+                    <Label
+                        Style="{StaticResource InfoParagraph}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    Style="{StaticResource InfoParagraphSpan}"
+                                    Text="All these photos are released under an "/>
+                                <Span
+                                    Style="{StaticResource InfoParagraphLink}"
+                                    Text="Attribution 3.0 Unported (CC BY 3.0)" />
+                                <Span
+                                    Style="{StaticResource InfoParagraphSpan}"
+                                    Text=" licence. This means that you can use, share and adapt it, as long as you give proper attribution, provide a link to the licence, and indicate if changes were made to the image. See the " />
+                                <Span
+                                    Style="{StaticResource InfoParagraphLink}"
+                                    Text="full licence" />
+                                <Span
+                                    Style="{StaticResource InfoParagraphSpan}"
+                                    Text=" for more details."/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </VerticalStackLayout>
+                <Label
+                    Style="{StaticResource HeadingThree}"
+                    Text="Full portrait" />
+                <Image
+                    Source="{Binding Member.Id, StringFormat='https://members-api.parliament.uk/api/Members/{0}/Portrait?cropType=FullSize'}"
+                    Style="{StaticResource Portrait}"/>
+                <Label
+                    Style="{StaticResource HeadingThree}"
+                    Text="3:2 portrait" />
+                <Image
+                    Source="{Binding Member.Id, StringFormat='https://members-api.parliament.uk/api/Members/{0}/Portrait?cropType=ThreeTwo'}"
+                    Style="{StaticResource Portrait}"/>
+                <Label
+                    Style="{StaticResource HeadingThree}"
+                    Text="3:4 portrait" />
+                <Image
+                    Source="{Binding Member.Id, StringFormat='https://members-api.parliament.uk/api/Members/{0}/Portrait?cropType=ThreeFour'}"
+                    Style="{StaticResource Portrait}"/>
+                <Label
+                    Style="{StaticResource HeadingThree}"
+                    Text="1:1 portrait" />
+                <Image
+                    Source="{Binding Member.Id, StringFormat='https://members-api.parliament.uk/api/Members/{0}/Portrait?cropType=OneOne'}"
+                    Style="{StaticResource Portrait}"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

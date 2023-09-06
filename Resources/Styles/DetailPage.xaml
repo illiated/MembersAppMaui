@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Style x:Key="ContentPage" TargetType="ContentPage">
+        <Setter Property="BackgroundColor" Value="#EBE9E8" />
+    </Style>
+    <Style x:Key="MainContent" TargetType="VerticalStackLayout">
+        <Setter Property="Margin" Value="0,0,0,18" />
+    </Style>
+    <Style x:Key="Hero" TargetType="VerticalStackLayout">
+        <Setter Property="BackgroundColor" Value="#006E46" />
+        <Setter Property="Margin" Value="0,0,0,36" />
+    </Style>
+    <Style x:Key="MemberImageFrame" TargetType="Frame">
+        <Setter Property="BorderColor" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="130" />
+        <Setter Property="Grid.Column" Value="1" />
+        <Setter Property="Grid.Row" Value="1" />
+        <Setter Property="HeightRequest" Value="130" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="Margin" Value="42,42,42,0" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="WidthRequest" Value="130" />
+    </Style>
+    <Style x:Key="CardMemberImage" TargetType="Image">
+        <Setter Property="Aspect" Value="AspectFill" />
+        <Setter Property="HeightRequest" Value="130" />
+        <Setter Property="WidthRequest" Value="130" />
+    </Style>
+    <Style x:Key="MemberName" TargetType="Label">
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="LineBreakMode" Value="WordWrap" />
+        <Setter Property="Margin" Value="42,32,42,0" />
+        <Setter Property="TextColor" Value="White" />
+    </Style>
+    <Style x:Key="MemberTeaserText" TargetType="Label">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="LineBreakMode" Value="WordWrap" />
+        <Setter Property="Margin" Value="42,12,42,54" />
+        <Setter Property="TextColor" Value="White" />
+    </Style>
+    <Style x:Key="MemberDetailLink" TargetType="Frame">
+        <Setter Property="BorderColor" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="Margin" Value="18,0,18,18" />
+        <Setter Property="Padding" Value="0" />
+    </Style>
+    <Style x:Key="MemberDetailContent" TargetType="Grid">
+        <Setter Property="ColumnDefinitions" Value="Auto,*,40" />
+    </Style>
+    <Style x:Key="MemberDetailLinkBorder" TargetType="BoxView">
+        <Setter Property="Color" Value="#625A75" />
+        <Setter Property="Grid.Column" Value="0" />
+        <Setter Property="Grid.Row" Value="0" />
+        <Setter Property="WidthRequest" Value="6" />
+    </Style>
+    <Style x:Key="MemberDetailLinkTitle" TargetType="Label">
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Grid.Column" Value="1" />
+        <Setter Property="Grid.Row" Value="0" />
+        <Setter Property="LineBreakMode" Value="WordWrap" />
+        <Setter Property="Padding" Value="18" />
+        <Setter Property="TextColor" Value="#373151" />
+    </Style>
+    <Style x:Key="MemberDetailLinkIcon" TargetType="Image">
+        <Setter Property="Grid.Column" Value="2" />
+        <Setter Property="Grid.Row" Value="0" />
+        <Setter Property="HeightRequest" Value="16" />
+        <Setter Property="HorizontalOptions" Value="End" />
+        <Setter Property="Margin" Value="0,0,18,0" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:MembersApp.ViewModels"
+    x:Class="MembersApp.Views.ContactPage"
+    Style="{StaticResource ContentPage}"
+    Title="Contact information">
+    <ContentPage.BindingContext>
+        <viewmodels:ContactPageViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Styles/SubDetailPage.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid
+        Style="{StaticResource Content}">
+        <HorizontalStackLayout
+            Style="{StaticResource MemberIntro}">
+            <Frame
+                Style="{StaticResource MemberIntroImageFrame}">
+                <Image
+                    Source="{Binding Member.ThumbnailUrl}"
+                    Style="{StaticResource MemberIntroImage}" />
+            </Frame>
+            <Label
+                Style="{StaticResource MemberIntroName}"
+                Text="{Binding Member.NameDisplayAs}" />
+        </HorizontalStackLayout>
+        <ScrollView
+            Style="{StaticResource Details}">
+            <VerticalStackLayout
+                Style="{StaticResource DetailsMain}">
+                <Label
+                    Style="{StaticResource Heading}"
+                    Text="{Binding Member.NameDisplayAs, StringFormat='Contact {0}'}"/>
+                <Label
+                    Style="{StaticResource Paragraph}"
+                    Text="{Binding Member.NameDisplayAs, StringFormat='This section contains web, social and other contact information for {0}.'}"/>
+                <Label
+                    Style="{StaticResource ParagraphLast}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span
+                                Style="{StaticResource ParagraphSpan}"
+                                Text="When contacting this Member, they should be addressed as " />
+                            <Span
+                                Style="{StaticResource ParagraphBold}"
+                                Text="{Binding Member.NameAddressAs}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <VerticalStackLayout
+                    Style="{StaticResource Info}">
+                    <Label
+                        Style="{StaticResource InfoParagraph}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    Style="{StaticResource InfoParagraphSpan}"
+                                    Text="For information about when you should contact MPs, Lords, or other organisations/individuals, review the "/>
+                                <Span
+                                    Style="{StaticResource InfoParagraphLink}"
+                                    Text="who to contact with my issue" />
+                                <Span
+                                    Style="{StaticResource InfoParagraphSpan}"
+                                    Text=" page." />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </VerticalStackLayout>
+                <VerticalStackLayout
+                    Style="{StaticResource Info}">
+                    <Label
+                        Style="{StaticResource InfoParagraph}"
+                        Text="Parliament takes the safety and wellbeing of its Members very seriously. Any contact which is threatening or offensive may be passed to the police for action." />
+                </VerticalStackLayout>
+                <Grid
+                    Style="{StaticResource Card}">
+                    <BoxView
+                        Style="{StaticResource CardBorder}" />
+                    <VerticalStackLayout
+                        Style="{StaticResource CardMain}">
+                        <Label
+                            Style="{StaticResource CardTitle}"
+                            Text="Parliamentary office" />
+                        <Label
+                            Style="{StaticResource CardParagraph}"
+                            Text="House of Commons" />
+                        <Label
+                            Style="{StaticResource CardParagraphLine}"
+                            Text="London" />
+                        <Label
+                            Style="{StaticResource CardParagraphLine}"
+                            Text="SW1A 0AA" />
+                        <Label
+                            Style="{StaticResource CardParagraph}"
+                            Text="Phone:" />
+                        <Label
+                            Style="{StaticResource CardParagraphLine}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        Style="{StaticResource CardParagraphLink}"
+                                        Text="020 7219 4426" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label
+                            Style="{StaticResource CardParagraph}"
+                            Text="Email:" />
+                        <Label
+                            Style="{StaticResource CardParagraphLine}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        Style="{StaticResource CardParagraphLink}"
+                                        Text="diane.abbott.office@parliament.uk" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </VerticalStackLayout>
+                </Grid>
+                <Grid
+                    Style="{StaticResource Card}">
+                    <BoxView
+                        Style="{StaticResource CardBorder}" />
+                    <VerticalStackLayout
+                        Style="{StaticResource CardMain}">
+                        <Label
+                            Style="{StaticResource CardTitle}"
+                            Text="Website" />
+                        <Label
+                            Style="{StaticResource CardParagraph}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        Style="{StaticResource CardParagraphLink}"
+                                        Text="http://www.dianneabbott.org.uk" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </VerticalStackLayout>
+                </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:MembersApp.ViewModels"
+    x:Class="MembersApp.Views.DetailPage"
+    Style="{StaticResource ContentPage}"
+    Title="Detail">
+    <ContentPage.BindingContext>
+        <viewmodels:DetailPageViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Styles/DetailPage.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout
+            Style="{StaticResource MainContent}">
+            <VerticalStackLayout
+                Style="{StaticResource Hero}">
+                <Frame
+                    Style="{StaticResource MemberImageFrame}">
+                    <Image
+                        Source="{Binding Member.ThumbnailUrl}"
+                        Style="{StaticResource CardMemberImage}" />
+                </Frame>
+                <Label
+                    Style="{StaticResource MemberName}"
+                    Text="{Binding Member.NameDisplayAs}"/>
+                <Label
+                    Style="{StaticResource MemberTeaserText}"
+                    Text="{Binding Member.TeaserText}"/>
+            </VerticalStackLayout>
+            <Frame
+                Style="{StaticResource MemberDetailLink}">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ContactInformationCommand}" />
+                </Frame.GestureRecognizers>
+                <Grid
+                    Style="{StaticResource MemberDetailContent}">
+                    <BoxView
+                        Style="{StaticResource MemberDetailLinkBorder}"/>
+                    <Label
+                        Style="{StaticResource MemberDetailLinkTitle}"
+                        Text="Contact information" />
+                    <Image
+                        Source="chevron_right.svg"
+                        Style="{StaticResource MemberDetailLinkIcon}"/>
+                </Grid>
+            </Frame>
+            <Frame
+                Style="{StaticResource MemberDetailLink}">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ParliamentaryCareerCommand}" />
+                </Frame.GestureRecognizers>
+                <Grid
+                    Style="{StaticResource MemberDetailContent}">
+                    <BoxView
+                        Style="{StaticResource MemberDetailLinkBorder}"/>
+                    <Label
+                        Style="{StaticResource MemberDetailLinkTitle}"
+                        Text="Parliamentary career" />
+                    <Image
+                        Source="chevron_right.svg"
+                        Style="{StaticResource MemberDetailLinkIcon}"/>
+                </Grid>
+            </Frame>
+            <Frame
+                Style="{StaticResource MemberDetailLink}">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OfficialPortraitCommand}" />
+                </Frame.GestureRecognizers>
+                <Grid
+                    Style="{StaticResource MemberDetailContent}">
+                    <BoxView
+                        Style="{StaticResource MemberDetailLinkBorder}"/>
+                    <Label
+                        Style="{StaticResource MemberDetailLinkTitle}"
+                        Text="Official portrait" />
+                    <Image
+                        Source="chevron_right.svg"
+                        Style="{StaticResource MemberDetailLinkIcon}"/>
+                </Grid>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

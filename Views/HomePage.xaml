@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:viewmodels="clr-namespace:MembersApp.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MembersApp.Views.HomePage"
+    Style="{StaticResource Key=ContentPage}"
+    Title="Members">
+    <ContentPage.BindingContext>
+        <viewmodels:HomePageViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Styles/HomePage.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid
+        Style="{StaticResource Content}">
+        <Label
+            Style="{StaticResource Heading}"
+            Text="Find MPs" />
+        <BoxView
+            Style="{StaticResource HeaderSeparator}" />
+        <CollectionView
+            ItemsSource="{Binding Members}"
+            SelectedItem="{Binding SelectedMember}"
+            SelectionChangedCommand="{Binding MemberSelectedCommand}"
+            SelectionMode="Single"
+            Style="{StaticResource MembersList}">
+            <CollectionView.Header>
+                <BoxView Color="Transparent" HeightRequest="18" />
+            </CollectionView.Header>
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="18" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Style="{StaticResource Card}">
+                        <BoxView
+                            Style="{StaticResource CardPartyColour}" />
+                        <Frame
+                            BackgroundColor="{Binding PartyColour}"
+                            Style="{StaticResource CardMemberImageFrame}">
+                            <Frame
+                                Style="{StaticResource CardMemberImageInnerFrame}">
+                                <Image
+                                    Source="{Binding ThumbnailUrl}"
+                                    Style="{StaticResource CardMemberImage}" />
+                            </Frame>
+                        </Frame>
+                        <VerticalStackLayout
+                            Style="{StaticResource CardMemberDetails}">
+                            <Label
+                                Style="{StaticResource CardMemberName}"
+                                Text="{Binding NameDisplayAs}" />
+                            <Label
+                                Style="{StaticResource CardMemberParty}"
+                                Text="{Binding PartyName}"/>
+                            <Label
+                                Style="{StaticResource CardMemberConstituency}"
+                                Text="{Binding Constituency}"/>
+                        </VerticalStackLayout>
+                        <Image
+                            Source="chevron_right.svg"
+                            Style="{StaticResource ChevronRight}"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.Footer>
+                <BoxView Color="Transparent" HeightRequest="18" />
+            </CollectionView.Footer>
+        </CollectionView>
+    </Grid>
+</ContentPage>

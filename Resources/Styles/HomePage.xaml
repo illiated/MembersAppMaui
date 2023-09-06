@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Style x:Key="ContentPage" TargetType="ContentPage">
+        <Setter Property="BackgroundColor" Value="#EBE9E8" />
+    </Style>
+    <Style x:Key="Content" TargetType="Grid">
+        <Setter Property="ColumnDefinitions" Value="18,*,18" />
+        <Setter Property="RowDefinitions" Value="Auto,*" />
+    </Style>
+    <Style x:Key="Heading" TargetType="Label">
+        <Setter Property="BackgroundColor" Value="#373151" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="Grid.Column" Value="0" />
+        <Setter Property="Grid.ColumnSpan" Value="3" />
+        <Setter Property="Grid.Row" Value="0" />
+        <Setter Property="HorizontalOptions" Value="Fill" />
+        <Setter Property="Padding" Value="18,18,18,18" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+    <Style x:Key="HeaderSeparator" TargetType="BoxView">
+        <Setter Property="Color" Value="#625A75" />
+        <Setter Property="Grid.Column" Value="0" />
+        <Setter Property="Grid.ColumnSpan" Value="3" />
+        <Setter Property="Grid.Row" Value="0" />
+        <Setter Property="HeightRequest" Value="1" />
+        <Setter Property="HorizontalOptions" Value="Fill" />
+        <Setter Property="VerticalOptions" Value="Start" />
+    </Style>
+    <Style x:Key="MembersList" TargetType="CollectionView">
+        <Setter Property="Grid.Column" Value="1" />
+        <Setter Property="Grid.Row" Value="1" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+    <Style x:Key="Card" TargetType="Grid">
+        <Setter Property="BackgroundColor" Value="White" />
+        <Setter Property="ColumnDefinitions" Value="6,18,70,18,*,40" />
+        <Setter Property="HorizontalOptions" Value="Fill" />
+        <Setter Property="RowDefinitions" Value="18,*,18" />
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="Selected">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="#F8F7F7" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+    <Style x:Key="CardPartyColour" TargetType="BoxView">
+        <Setter Property="Color" Value="#625A75" />
+        <Setter Property="Grid.Column" Value="0" />
+        <Setter Property="Grid.RowSpan" Value="3" />
+        <Setter Property="Grid.Row" Value="0" />
+    </Style>
+    <Style x:Key="CardMemberImageFrame" TargetType="Frame">
+        <Setter Property="BorderColor" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="35" />
+        <Setter Property="Grid.Column" Value="2" />
+        <Setter Property="Grid.Row" Value="1" />
+        <Setter Property="HeightRequest" Value="70" />
+        <Setter Property="VerticalOptions" Value="Start" />
+        <Setter Property="WidthRequest" Value="70" />
+    </Style>
+    <Style x:Key="CardMemberImageInnerFrame" TargetType="Frame">
+        <Setter Property="BorderColor" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="32" />
+        <Setter Property="HeightRequest" Value="64" />
+        <Setter Property="WidthRequest" Value="64" />
+    </Style>
+    <Style x:Key="CardMemberImage" TargetType="Image">
+        <Setter Property="Aspect" Value="AspectFill" />
+        <Setter Property="HeightRequest" Value="64" />
+        <Setter Property="WidthRequest" Value="64" />
+    </Style>
+    <Style x:Key="CardMemberDetails" TargetType="VerticalStackLayout">
+        <Setter Property="Grid.Column" Value="4" />
+        <Setter Property="Grid.Row" Value="1" />
+    </Style>
+    <Style x:Key="CardMemberName" TargetType="Label">
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Grid.Column" Value="2" />
+        <Setter Property="Grid.Row" Value="1" />
+        <Setter Property="LineBreakMode" Value="TailTruncation" />
+        <Setter Property="TextColor" Value="#373151" />
+    </Style>
+    <Style x:Key="CardMemberParty" TargetType="Label">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="Margin" Value="0,6,0,0" />
+        <Setter Property="LineBreakMode" Value="TailTruncation" />
+        <Setter Property="TextColor" Value="#373151" />
+    </Style>
+    <Style x:Key="CardMemberConstituency" TargetType="Label">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="LineBreakMode" Value="TailTruncation" />
+        <Setter Property="Margin" Value="0,8,0,0" />
+        <Setter Property="TextColor" Value="#717171" />
+    </Style>
+    <Style x:Key="ChevronRight" TargetType="Image">
+        <Setter Property="Grid.Column" Value="5" />
+        <Setter Property="Grid.Row" Value="1" />
+        <Setter Property="HeightRequest" Value="16" />
+        <Setter Property="HorizontalOptions" Value="End" />
+        <Setter Property="Margin" Value="18,2" />
+        <Setter Property="WidthRequest" Value="18" />
+        <Setter Property="VerticalOptions" Value="Start" />
+    </Style>
+</ResourceDictionary>
